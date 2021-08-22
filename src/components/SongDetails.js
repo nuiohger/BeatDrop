@@ -186,7 +186,6 @@ class SongDetails extends Component {
           <img className="cover-image" src={ this.props.details.coverURL.startsWith('file://') ? this.props.details.coverURL : `https://beatsaver.com${this.props.details.coverURL}` } alt='' />
           <div className="details-info">
             <span className="details-title" title={ this.props.details.songName || this.props.details._songName || this.props.details.metadata.songName }>{ this.props.details.songName || this.props.details._songName || this.props.details.metadata.songName }</span>
-            <div className="details-subtitle" title={ this.props.details.songSubName || this.props.details._songSubName || this.props.details.metadata ? this.props.details.metadata.songSubName : '' }>{ this.props.details.songSubName || this.props.details._songSubName || this.props.details.metadata ? this.props.details.metadata.songSubName : '' }</div>
             <div className="details-artist" title={ this.props.details.authorName || this.props.details.songAuthorName || this.props.details._songAuthorName || this.props.details.metadata.songAuthorName }>{ this.props.details.authorName || this.props.details.songAuthorName || this.props.details._songAuthorName || this.props.details.metadata.songAuthorName }</div>
             {this.props.downloadedSongs.some(song => song.hash === this.props.details.hash) ? <div className="song-in-library">This song is in your library.</div> : null}
             <div className="action-buttons">
