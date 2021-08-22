@@ -1,3 +1,15 @@
+## 修正バージョン (Fixed version) - UPDATE :8/22
+曲選択時に、クラッシュする問題について修正しました。
+
+Fixed a crash problem when selecting a song.
+
+### この問題について
+Info.datから取得するsongSubNameを表示する際にエラーが発生します。
+暫定的にhtmlタグと取り除く修正を加えました。
+
+An error occurs when displaying the songSubName retrieved from Info.dat.
+I have made a temporary fix to remove it and the html tag.
+
 ## BeatDrop is looking for maintainers!
 I no longer have the time to maintain BeatDrop by myself. Therefore, I am seeking 2-3 interested parties to develop and maintain BeatDrop for the forseeable future.
 
