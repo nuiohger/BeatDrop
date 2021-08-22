@@ -10,6 +10,9 @@ Info.datから取得するsongSubNameを表示する際にエラーが発生し�
 An error occurs when displaying the songSubName retrieved from Info.dat.
 I have made a temporary fix to remove it and the html tag.
 
+### Download
+[Here](https://github.com/nuiohger/BeatDrop/releases/tag/v2.6.2-fixed)
+
 ## BeatDrop is looking for maintainers!
 I no longer have the time to maintain BeatDrop by myself. Therefore, I am seeking 2-3 interested parties to develop and maintain BeatDrop for the forseeable future.
 
