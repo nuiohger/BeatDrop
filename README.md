@@ -6,9 +6,11 @@ Fixed a crash problem when selecting a song.
 ### この問題について
 Info.datから取得するsongSubNameを表示する際にエラーが発生します。
 暫定的にhtmlタグと取り除く修正を加えました。
+-> 追記 8/24 : ちゃんと直しました。
 
 An error occurs when displaying the songSubName retrieved from Info.dat.
 I have made a temporary fix to remove it and the html tag.
+-> P.S. 8/24 : Fixed it properly.
 
 ### Download
 [Here](https://github.com/nuiohger/BeatDrop/releases/tag/v2.6.2-fixed)
