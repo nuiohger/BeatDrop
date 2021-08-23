@@ -157,8 +157,39 @@ class SongDetails extends Component {
   componentWillUnmount() {
     window.removeEventListener('keyup', this.exitDetailsShortcut)
   }
-
+  
   render() {
+    function get_songName(props) {
+      if(props.details.songName !== undefined) return props.details.songName
+      if(props.details._songName !== undefined) return props.details._songName
+      if(props.details.metadata !== undefined) {
+        if(props.details.metadata.songName !== undefined) return props.details.metadata.songName
+      }
+      return ''
+    }
+  
+    function get_songSubName(props) {
+      if(props.details.songSubName !== undefined) return props.details.songSubName
+      if(props.details._songSubName !== undefined) return props.details._songSubName
+      if(props.details.metadata !== undefined) {
+        if(props.details.metadata.songSubName !== undefined) return props.details.metadata.songSubName
+      }
+      return ''
+    }
+  
+    function get_songAuthorName(props) {
+      if(props.details.authorName !== undefined) return props.details.authorName
+      if(props.details.songAuthorName !== undefined) return props.details.songAuthorName
+      if(props.details._songAuthorName !== undefined) return props.details._songAuthorName
+      if(props.details.metadata !== undefined) {
+        if(props.details.metadata.songAuthorName !== undefined) return props.details.metadata.songAuthorName
+      }
+      return ''
+    }
+    
+    var songName = get_songName(this.props)
+    var songSubName = get_songSubName(this.props)
+    var songauthorName = get_songAuthorName(this.props)
     if(this.props.details.loading) {
       return (
         <div id="song-details" className="loading">
@@ -185,8 +216,9 @@ class SongDetails extends Component {
           <div className="close-icon" title="Close" onClick={ () => {this.props.setView(this.props.previousView)} }></div>
           <img className="cover-image" src={ this.props.details.coverURL.startsWith('file://') ? this.props.details.coverURL : `https://beatsaver.com${this.props.details.coverURL}` } alt='' />
           <div className="details-info">
-            <span className="details-title" title={ this.props.details.songName || this.props.details._songName || this.props.details.metadata.songName }>{ this.props.details.songName || this.props.details._songName || this.props.details.metadata.songName }</span>
-            <div className="details-artist" title={ this.props.details.authorName || this.props.details.songAuthorName || this.props.details._songAuthorName || this.props.details.metadata.songAuthorName }>{ this.props.details.authorName || this.props.details.songAuthorName || this.props.details._songAuthorName || this.props.details.metadata.songAuthorName }</div>
+            <span className="details-title" title={ songName }>{ songName }</span>
+            <div className="details-subtitle" title={ songSubName }>{ songSubName }</div>
+            <div className="details-artist" title={ songauthorName }>{ songauthorName }</div>
             {this.props.downloadedSongs.some(song => song.hash === this.props.details.hash) ? <div className="song-in-library">This song is in your library.</div> : null}
             <div className="action-buttons">
               {(!!this.props.details.file || this.props.downloadedSongs.some(song => song.hash === this.props.details.hash)) ?
